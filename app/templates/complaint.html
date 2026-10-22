@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "_table.html" import prio %}
+{% block content %}
+<h1>Complaint #{{ c.complaint_id }}</h1>
+<div class="grid">
+  <div class="card c-blue">
+    <strong>{{ c.complaint_title }}</strong>
+    <p>{{ c.complaint_desc }}</p>
+    <p class="muted">{{ c.category_name }} | {{ prio(c.priority_level) }}<br>
+      {{ c.student_name }}, {{ c.hostel_name }} room {{ c.room_number }}<br>
+      Raised {{ c.created_at|dt }}{% if c.resolved_at %} | Resolved {{ c.resolved_at|dt }}{% endif %}</p>
+    <p><strong>Status:</strong> {{ c.status_name }}<br><strong>Assigned to:</strong> {{ c.staff_name or 'Not assigned yet' }}</p>
+  </div>
+  <div class="card c-green">
+    <strong>History</strong>
+    <ul class="timeline">
+      {% for h in history %}<li>{{ h.changed_at|dt }}: <b>{{ h.status_name }}</b>{% if h.staff_name %} ({{ h.staff_name }}){% endif %}</li>{% endfor %}
+    </ul>
+  </div>
+</div>
+{% if fb %}
+<div class="card c-yel"><strong>Feedback:</strong> {{ fb.rating }}/5. {{ fb.comments }}</div>
+{% elif c.status_id == 4 %}
+<form class="card c-yel" method="post" action="{{ url_for('feedback', cid=c.complaint_id) }}">
+  <strong>The work is done. Rate it to close this complaint.</strong>
+  <label for="rating">Rating</label>
+  <select id="rating" name="rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select>
+  <label for="comments">Comments</label>
+  <input id="comments" name="comments" maxlength="300">
+  <button type="submit">Submit feedback and close</button>
+</form>
+{% endif %}
+{% endblock %}

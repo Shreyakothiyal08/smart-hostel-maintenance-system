@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>New complaint</h1>
+<form class="card c-yel" method="post">
+  <p class="muted">Raising as {{ me.student_name }}, {{ me.hostel_name }} room {{ me.room_number }}</p>
+  <label for="category_id">Category</label>
+  <select id="category_id" name="category_id">
+    {% for c in cats %}<option value="{{ c.category_id }}">{{ c.category_name }} - {{ c.description }}</option>{% endfor %}
+  </select>
+  <label for="title">Short title</label>
+  <input id="title" name="title" maxlength="100" required>
+  <label for="desc">What is wrong?</label>
+  <textarea id="desc" name="desc" rows="4" maxlength="500" required></textarea>
+  <label for="priority">Priority</label>
+  <select id="priority" name="priority">
+    <option>LOW</option><option selected>MEDIUM</option><option>HIGH</option><option>URGENT</option>
+  </select>
+  <button type="submit">Submit complaint</button>
+</form>
+{% endblock %}

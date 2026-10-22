@@ -1,0 +1,106 @@
+INSERT INTO Hostels VALUES (1, 'Maple Residency',  'GIRLS', 'Dr. Meera Rao',          '9000000001');
+INSERT INTO Hostels VALUES (2, 'Cedar Residency',  'BOYS',  'Mr. Arjun Das',          '9000000002');
+INSERT INTO Hostels VALUES (3, 'Willow Residency', 'BOYS',  'Mr. Karthik Subramanian','9000000003');
+
+-- Maple (girls): 101 to 105, Cedar (boys): 201 to 205, Willow (boys): 301 to 304
+INSERT INTO Rooms VALUES (101, 1, 'A-101', 1, 2);
+INSERT INTO Rooms VALUES (102, 1, 'A-102', 1, 3);
+INSERT INTO Rooms VALUES (103, 1, 'A-205', 2, 2);
+INSERT INTO Rooms VALUES (104, 1, 'A-206', 2, 2);
+INSERT INTO Rooms VALUES (105, 1, 'A-310', 3, 2);
+INSERT INTO Rooms VALUES (201, 2, 'B-201', 2, 2);
+INSERT INTO Rooms VALUES (202, 2, 'B-202', 2, 2);
+INSERT INTO Rooms VALUES (203, 2, 'B-305', 3, 3);
+INSERT INTO Rooms VALUES (204, 2, 'B-306', 3, 2);
+INSERT INTO Rooms VALUES (205, 2, 'B-110', 1, 2);
+INSERT INTO Rooms VALUES (301, 3, 'C-104', 1, 2);
+INSERT INTO Rooms VALUES (302, 3, 'C-105', 1, 2);
+INSERT INTO Rooms VALUES (303, 3, 'C-212', 2, 3);
+INSERT INTO Rooms VALUES (304, 3, 'C-318', 3, 2);
+
+INSERT INTO Students VALUES (24010001, 'Aarav Sharma',    'aarav.sharma2024@vitstudent.ac.in',    '9000010001', 201);
+INSERT INTO Students VALUES (24010002, 'Diya Nair',       'diya.nair2024@vitstudent.ac.in',       '9000010002', 102);
+INSERT INTO Students VALUES (24010003, 'Kabir Mehta',     'kabir.mehta2024@vitstudent.ac.in',     '9000010003', 202);
+INSERT INTO Students VALUES (24010004, 'Ananya Iyer',     'ananya.iyer2024@vitstudent.ac.in',     '9000010004', 101);
+INSERT INTO Students VALUES (24010005, 'Ishaan Roy',      'ishaan.roy2024@vitstudent.ac.in',      '9000010005', 203);
+INSERT INTO Students VALUES (24010006, 'Meghna Pillai',   'meghna.pillai2024@vitstudent.ac.in',   '9000010006', 101);
+INSERT INTO Students VALUES (24010007, 'Sneha Reddy',     'sneha.reddy2024@vitstudent.ac.in',     '9000010007', 102);
+INSERT INTO Students VALUES (24010008, 'Priya Menon',     'priya.menon2024@vitstudent.ac.in',     '9000010008', 103);
+INSERT INTO Students VALUES (24010009, 'Tanvi Kulkarni',  'tanvi.kulkarni2024@vitstudent.ac.in',  '9000010009', 103);
+INSERT INTO Students VALUES (24010010, 'Ritika Banerjee', 'ritika.banerjee2024@vitstudent.ac.in', '9000010010', 104);
+INSERT INTO Students VALUES (24010011, 'Harini Venkat',   'harini.venkat2024@vitstudent.ac.in',   '9000010011', 105);
+INSERT INTO Students VALUES (24010012, 'Rohan Das',       'rohan.das2024@vitstudent.ac.in',       '9000010012', 201);
+INSERT INTO Students VALUES (24010013, 'Vikram Singh',    'vikram.singh2024@vitstudent.ac.in',    '9000010013', 202);
+INSERT INTO Students VALUES (24010014, 'Arjun Nambiar',   'arjun.nambiar2024@vitstudent.ac.in',   '9000010014', 203);
+INSERT INTO Students VALUES (24010015, 'Siddharth Rao',   'siddharth.rao2024@vitstudent.ac.in',   '9000010015', 204);
+INSERT INTO Students VALUES (24010016, 'Naveen Kumar',    'naveen.kumar2024@vitstudent.ac.in',    '9000010016', 205);
+INSERT INTO Students VALUES (24010017, 'Farhan Sheikh',   'farhan.sheikh2024@vitstudent.ac.in',   '9000010017', 301);
+INSERT INTO Students VALUES (24010018, 'Karthik Raman',   'karthik.raman2024@vitstudent.ac.in',   '9000010018', 301);
+INSERT INTO Students VALUES (24010019, 'Dev Patel',       'dev.patel2024@vitstudent.ac.in',       '9000010019', 302);
+INSERT INTO Students VALUES (24010020, 'Abhishek Jain',   'abhishek.jain2024@vitstudent.ac.in',   '9000010020', 303);
+
+INSERT INTO Staff VALUES (501, 'Ravi Kumar',    'Electrician',        '9111100001', 'AVAILABLE');
+INSERT INTO Staff VALUES (502, 'Sana Joseph',   'Plumber',            '9111100002', 'AVAILABLE');
+INSERT INTO Staff VALUES (503, 'Manoj Singh',   'Carpenter',          '9111100003', 'BUSY');
+INSERT INTO Staff VALUES (504, 'Neha Das',      'General Maintenance','9111100004', 'AVAILABLE');
+INSERT INTO Staff VALUES (505, 'Imran Khan',    'Electrician',        '9111100005', 'AVAILABLE');
+INSERT INTO Staff VALUES (506, 'Lakshmi Devi',  'Housekeeping',       '9111100006', 'AVAILABLE');
+INSERT INTO Staff VALUES (507, 'Faisal Ahmed',  'Network Technician', '9111100007', 'AVAILABLE');
+INSERT INTO Staff VALUES (508, 'Joseph Mathew', 'Plumber',            '9111100008', 'OFF_DUTY');
+
+INSERT INTO Categories VALUES (1, 'ELECTRICAL', 'Lights, switches, fans, and power points',    'Electrician');
+INSERT INTO Categories VALUES (2, 'PLUMBING',   'Taps, pipes, drains, and water supply',       'Plumber');
+INSERT INTO Categories VALUES (3, 'FURNITURE',  'Beds, desks, chairs, and cupboards',          'Carpenter');
+INSERT INTO Categories VALUES (4, 'CLEANING',   'Sanitation and common-area cleanliness',      'Housekeeping');
+INSERT INTO Categories VALUES (5, 'NETWORK',    'Hostel Wi-Fi or network access',              'Network Technician');
+INSERT INTO Categories VALUES (6, 'CIVIL',      'Doors, windows, walls, and ceilings',         'General Maintenance');
+
+INSERT INTO Complaint_Status VALUES (1, 'SUBMITTED');
+INSERT INTO Complaint_Status VALUES (2, 'ASSIGNED');
+INSERT INTO Complaint_Status VALUES (3, 'IN_PROGRESS');
+INSERT INTO Complaint_Status VALUES (4, 'RESOLVED');
+INSERT INTO Complaint_Status VALUES (5, 'CLOSED');
+
+-- Complaints: id, student, category, status, staff, room, title, description, priority, created, resolved
+INSERT INTO Complaints VALUES (7001, 24010001, 1, 3, 501,  201, 'Ceiling fan not working',       'Fan does not start despite switch being on.',                'HIGH',   SYSDATE-4,  NULL);
+INSERT INTO Complaints VALUES (7002, 24010002, 2, 2, 502,  102, 'Washbasin leakage',             'Water is leaking below the washbasin.',                      'MEDIUM', SYSDATE-3,  NULL);
+INSERT INTO Complaints VALUES (7003, 24010003, 3, 4, 503,  202, 'Broken study chair',            'One leg of the chair is unstable.',                          'LOW',    SYSDATE-8,  SYSDATE-6);
+INSERT INTO Complaints VALUES (7004, 24010004, 1, 1, NULL, 101, 'Room light flickering',         'Main light flickers intermittently.',                        'URGENT', SYSDATE-1,  NULL);
+INSERT INTO Complaints VALUES (7005, 24010005, 4, 5, 506,  203, 'Bathroom cleaning request',     'Requesting a detailed cleaning of the bathroom.',            'LOW',    SYSDATE-10, SYSDATE-9);
+INSERT INTO Complaints VALUES (7006, 24010006, 2, 5, 502,  101, 'Flush tank not filling',        'Flush tank takes very long to fill and keeps running.',      'MEDIUM', SYSDATE-14, SYSDATE-12);
+INSERT INTO Complaints VALUES (7007, 24010007, 1, 4, 505,  102, 'Socket near bed has no power',  'Charging socket has been dead since morning.',               'MEDIUM', SYSDATE-9,  SYSDATE-7);
+INSERT INTO Complaints VALUES (7008, 24010008, 3, 5, 503,  103, 'Cupboard door off its hinge',   'Top cupboard door hangs loose and will not close.',          'LOW',    SYSDATE-18, SYSDATE-15);
+INSERT INTO Complaints VALUES (7009, 24010009, 5, 3, 507,  103, 'Wi-Fi drops in room',           'No signal on the Wi-Fi in the evenings after 7 pm.',         'HIGH',   SYSDATE-5,  NULL);
+INSERT INTO Complaints VALUES (7010, 24010010, 4, 1, NULL, 104, 'Washroom not cleaned',          'Washroom on the second floor has not been cleaned for two days.', 'MEDIUM', SYSDATE-1, NULL);
+INSERT INTO Complaints VALUES (7011, 24010011, 1, 5, 501,  105, 'Tube light replacement',        'Tube light burnt out, room is dark at night.',               'MEDIUM', SYSDATE-20, SYSDATE-19);
+INSERT INTO Complaints VALUES (7012, 24010012, 6, 4, 504,  201, 'Window latch broken',           'Window will not lock and rain comes in.',                    'HIGH',   SYSDATE-7,  SYSDATE-5);
+INSERT INTO Complaints VALUES (7013, 24010013, 2, 3, 502,  202, 'Low water pressure',            'Water pressure is very low in the bathroom tap and shower.', 'MEDIUM', SYSDATE-2,  NULL);
+INSERT INTO Complaints VALUES (7014, 24010014, 5, 2, 507,  203, 'LAN port not working',          'Ethernet port on the wall gives no connection.',             'MEDIUM', SYSDATE-2,  NULL);
+INSERT INTO Complaints VALUES (7015, 24010015, 1, 5, 501,  204, 'Fan regulator sparking',        'Regulator makes a buzzing sound and sparks.',                'URGENT', SYSDATE-12, SYSDATE-11);
+INSERT INTO Complaints VALUES (7016, 24010016, 6, 1, NULL, 205, 'Ceiling paint peeling',         'Paint is peeling over the bed and flakes fall down.',        'LOW',    SYSDATE-2,  NULL);
+INSERT INTO Complaints VALUES (7017, 24010017, 1, 4, 505,  301, 'Switchboard loose',             'Switchboard near the desk is hanging out of the wall.',      'HIGH',   SYSDATE-6,  SYSDATE-4);
+INSERT INTO Complaints VALUES (7018, 24010018, 3, 3, 503,  301, 'Bed frame creaking',            'Bed frame creaks and shakes when anyone sits on it.',        'MEDIUM', SYSDATE-6,  NULL);
+INSERT INTO Complaints VALUES (7019, 24010019, 2, 5, 508,  302, 'Drain blocked',                 'Bathroom drain is blocked and water is overflowing.',        'HIGH',   SYSDATE-16, SYSDATE-14);
+INSERT INTO Complaints VALUES (7020, 24010020, 4, 4, 506,  303, 'Pest spray needed',             'Cockroaches in the corner near the bathroom.',               'MEDIUM', SYSDATE-8,  SYSDATE-6);
+INSERT INTO Complaints VALUES (7021, 24010002, 5, 5, 507,  102, 'Slow internet speed',           'Speed drops below 1 Mbps during the day.',                   'LOW',    SYSDATE-22, SYSDATE-19);
+INSERT INTO Complaints VALUES (7022, 24010001, 3, 1, NULL, 201, 'Desk drawer stuck',             'Drawer cannot be pulled out fully.',                         'LOW',    SYSDATE-1,  NULL);
+INSERT INTO Complaints VALUES (7023, 24010004, 2, 2, 502,  101, 'Tap dripping in washroom',      'Tap keeps dripping even when closed.',                       'LOW',    SYSDATE-2,  NULL);
+INSERT INTO Complaints VALUES (7024, 24010013, 1, 5, 505,  202, 'Socket sparks with lamp',       'Socket sparks when plugging in a table lamp.',               'URGENT', SYSDATE-25, SYSDATE-24);
+INSERT INTO Complaints VALUES (7025, 24010006, 4, 5, 506,  101, 'Dustbin not cleared',           'Corridor dustbin has not been emptied since Monday.',        'LOW',    SYSDATE-13, SYSDATE-12);
+INSERT INTO Complaints VALUES (7026, 24010011, 2, 4, 502,  105, 'Shower head broken',            'Shower head cracked and sprays sideways.',                   'MEDIUM', SYSDATE-6,  SYSDATE-4);
+INSERT INTO Complaints VALUES (7027, 24010016, 1, 3, 501,  205, 'Exhaust fan noisy',             'Exhaust fan rattles loudly at night.',                       'LOW',    SYSDATE-3,  NULL);
+INSERT INTO Complaints VALUES (7028, 24010007, 6, 5, 504,  102, 'Door lock stiff',               'Door lock needs a lot of force to turn.',                    'MEDIUM', SYSDATE-17, SYSDATE-15);
+INSERT INTO Complaints VALUES (7029, 24010019, 5, 1, NULL, 302, 'Router light red',              'Floor router has shown a red light since last night.',       'HIGH',   SYSDATE-1,  NULL);
+INSERT INTO Complaints VALUES (7030, 24010008, 1, 2, 505,  103, 'Power point loose',             'Plug keeps slipping out of the socket.',                     'MEDIUM', SYSDATE-1,  NULL);
+
+INSERT INTO Feedback VALUES (8001, 7003, 5, 'Resolved quickly and professionally.',      SYSDATE-5);
+INSERT INTO Feedback VALUES (8002, 7005, 4, 'Issue handled satisfactorily.',             SYSDATE-8);
+INSERT INTO Feedback VALUES (8003, 7006, 3, 'Fixed, but I had to remind twice.',         SYSDATE-11);
+INSERT INTO Feedback VALUES (8004, 7008, 5, 'Cupboard door works like new.',             SYSDATE-14);
+INSERT INTO Feedback VALUES (8005, 7011, 4, 'Done the next morning.',                    SYSDATE-18);
+INSERT INTO Feedback VALUES (8006, 7015, 5, 'Quick action on a risky fault.',            SYSDATE-10);
+INSERT INTO Feedback VALUES (8007, 7019, 2, 'Drain blocked again after two days.',       SYSDATE-13);
+INSERT INTO Feedback VALUES (8008, 7021, 3, 'Speed is better but still drops at night.', SYSDATE-18);
+INSERT INTO Feedback VALUES (8009, 7024, 5, 'Replaced the socket the same day.',         SYSDATE-23);
+INSERT INTO Feedback VALUES (8010, 7028, 4, 'Lock works smoothly now.',                  SYSDATE-14);
+COMMIT;

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_table.html" import prio %}
+{% block content %}
+<h1>Hi, {{ me.student_name }}</h1>
+<p class="muted">{{ me.hostel_name }}, room {{ me.room_number }}</p>
+<a class="btn" href="{{ url_for('new_complaint', sid=me.student_id) }}">Raise a new complaint</a>
+<h2>Your complaints</h2>
+{% if complaints %}
+<table>
+  <thead><tr><th>ID</th><th>Title</th><th>Category</th><th>Priority</th><th>Status</th><th>Assigned to</th><th>Raised</th></tr></thead>
+  <tbody>
+  {% for c in complaints %}
+    <tr>
+      <td><a href="{{ url_for('complaint', cid=c.complaint_id) }}">#{{ c.complaint_id }}</a></td>
+      <td>{{ c.complaint_title }}</td><td>{{ c.category_name }}</td><td>{{ prio(c.priority_level) }}</td>
+      <td>{{ c.status_name }}</td><td>{{ c.staff_name or 'Not assigned' }}</td><td>{{ c.created_at|dt }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}<p>No complaints yet.</p>{% endif %}
+{% endblock %}

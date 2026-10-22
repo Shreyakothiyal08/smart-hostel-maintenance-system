@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Smart Hostel Maintenance</h1>
+<p class="muted">Pick who you are. This demo has no passwords; sign-in would sit in the web layer.</p>
+<div class="grid">
+  <form class="card c-blue" method="post" action="{{ url_for('go') }}">
+    <input type="hidden" name="role" value="student">
+    <strong>Student</strong>
+    <label for="sid">Name</label>
+    <select id="sid" name="student_id">
+      {% for s in students %}<option value="{{ s.student_id }}">{{ s.student_name }} ({{ s.student_id }})</option>{% endfor %}
+    </select>
+    <button type="submit">Continue as student</button>
+  </form>
+  <form class="card c-green" method="post" action="{{ url_for('go') }}">
+    <input type="hidden" name="role" value="staff">
+    <strong>Maintenance staff</strong>
+    <label for="stid">Name</label>
+    <select id="stid" name="staff_id">
+      {% for s in staff %}<option value="{{ s.staff_id }}">{{ s.staff_name }} ({{ s.role_name }})</option>{% endfor %}
+    </select>
+    <button type="submit">Continue as staff</button>
+  </form>
+  <form class="card c-pink" method="post" action="{{ url_for('go') }}">
+    <input type="hidden" name="role" value="admin">
+    <strong>Warden or admin</strong>
+    <p>See counts by status, category and hostel, and assign pending complaints.</p>
+    <button type="submit">Open dashboard</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "_table.html" import prio %}
+{% block content %}
+<h1>{{ me.staff_name }}</h1>
+<p class="muted">{{ me.role_name }} | {{ me.availability }}</p>
+<h2>Active work ({{ active|length }})</h2>
+{% if active %}
+<table>
+  <thead><tr><th>ID</th><th>Where</th><th>Problem</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead>
+  <tbody>
+  {% for c in active %}
+    <tr>
+      <td><a href="{{ url_for('complaint', cid=c.complaint_id) }}">#{{ c.complaint_id }}</a></td>
+      <td>{{ c.hostel_name }}, {{ c.room_number }}</td>
+      <td>{{ c.complaint_title }}</td><td>{{ prio(c.priority_level) }}</td><td>{{ c.status_name }}</td>
+      <td>
+        <form method="post" action="{{ url_for('set_status', cid=c.complaint_id) }}">
+          <input type="hidden" name="back" value="{{ url_for('staff', stid=me.staff_id) }}">
+          {% if c.status_id == 2 %}<input type="hidden" name="status_id" value="3"><button class="btn-small" type="submit">Start work</button>
+          {% else %}<input type="hidden" name="status_id" value="4"><button class="btn-small" type="submit">Mark resolved</button>{% endif %}
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}<p>Nothing assigned right now.</p>{% endif %}
+<h2>Finished ({{ done|length }})</h2>
+<table>
+  <thead><tr><th>ID</th><th>Problem</th><th>Status</th><th>Resolved</th></tr></thead>
+  <tbody>{% for c in done %}<tr><td>#{{ c.complaint_id }}</td><td>{{ c.complaint_title }}</td><td>{{ c.status_name }}</td><td>{{ c.resolved_at|dt }}</td></tr>{% endfor %}</tbody>
+</table>
+{% endblock %}
