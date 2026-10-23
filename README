@@ -1,0 +1,163 @@
+# Smart Hostel Maintenance System
+
+A Flask-based hostel complaint and maintenance management system for students, staff, and administrators. The application helps manage maintenance requests, automatically assign complaints to relevant staff, track complaint status, and provide a dashboard for operational insights.
+
+## Overview
+
+This project allows:
+
+- Students to submit and track maintenance complaints
+- Staff members to view active work and update complaint status
+- Administrators to monitor all complaints, assignment flow, and dashboard statistics
+- Automated complaint assignment based on staff role and workload
+- Feedback collection once a complaint is resolved
+
+The backend uses Oracle Database connectivity via `oracledb`, and the project includes SQL scripts for schema setup and sample data.
+
+## Features
+
+- Student portal for complaint submission
+- Role-based navigation for student, staff, and admin
+- Complaint tracking with priority levels
+- Automatic staff assignment using stored procedures
+- Status transition management and audit/history tracking
+- Admin dashboard with total counts and category/hostel statistics
+- Feedback and closure workflow
+- REST-style analytics endpoint: `/api/stats`
+
+## Tech Stack
+
+- Python
+- Flask
+- Oracle Database
+- SQL / PL/SQL
+- HTML / Jinja2 templates
+- JavaScript for dashboard charts (in templates/static assets)
+
+## Project Structure
+
+```text
+smart-hostel-maintenance-system/
+├── .env.example
+├── .gitignore
+├── app/
+│   ├── app.py
+│   ├── db.py
+│   ├── static/
+│   └── templates/
+│       ├── admin.html
+│       ├── base.html
+│       ├── complaint.html
+│       ├── home.html
+│       ├── new_complaint.html
+│       ├── staff.html
+│       ├── student.html
+│       └── _table.html
+├── sql/
+│   └── oracle/
+│       ├── Hostel_Maintenance_Oracle_SQLPlus.sql
+│       └── load_sample_data.sql
+├── tests/
+│   ├── make_test_db.py
+│   ├── test_app.py
+│   └── test.db
+└── README.md
+```
+
+## Database Setup
+
+This application expects an Oracle database with the schema defined in:
+
+- `sql/oracle/Hostel_Maintenance_Oracle_SQLPlus.sql`
+- `sql/oracle/load_sample_data.sql`
+
+The configuration is loaded from environment variables, using the sample values in `.env.example`:
+
+```env
+DB_USER=HOSTEL_USER
+DB_PASSWORD=your_oracle_password
+DB_DSN=localhost:1521/XEPDB1
+```
+
+You can either create a `.env` file or export these values in your shell before launching the app.
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Shreyakothiyal08/smart-hostel-maintenance-system.git
+cd smart-hostel-maintenance-system
+```
+
+2. Create and activate a virtual environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate   # On macOS/Linux
+# or
+venv\Scripts\activate      # On Windows
+```
+
+3. Install dependencies:
+
+```bash
+pip install flask oracledb
+```
+
+4. Configure your Oracle database connection using `.env.example` as a template.
+
+## Running the App
+
+From the repository root:
+
+```bash
+python app/app.py
+```
+
+The app will start in Flask development mode and can usually be accessed at:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Typical User Flows
+
+### Student
+- Select a student profile on the home page
+- Submit a new complaint with title, description, category, and priority
+- View complaint status and history
+
+### Staff
+- Open staff dashboard
+- Review active assignments
+- Update complaint progression status
+
+### Admin
+- View all complaints in a central dashboard
+- Monitor totals and priority distribution
+- Trigger assignment logic
+- Review dashboard statistics
+
+## Testing
+
+The repository includes a SQLite-based test database setup and app tests.
+
+Run:
+
+```bash
+python tests/make_test_db.py
+python tests/test_app.py
+```
+
+This validates routes, complaint creation, assignment behavior, status updates, and feedback logic.
+
+## Notes
+
+- The app is designed around Oracle DB objects like `Complaints`, `Students`, `Staff`, `Hostels`, `Rooms`, `Categories`, and `Complaint_Status`.
+- The database initialization scripts are the source of truth for the schema and sample records.
+- The app includes a custom database wrapper (`app/db.py`) that converts SQL placeholders and handles Oracle-specific insert/returning behavior.
+
+## License
+
+No explicit license file is present in the repository, so the repository does not currently declare a software license. If you plan to publish or reuse this project publicly, it is recommended to add an appropriate open-source license.
